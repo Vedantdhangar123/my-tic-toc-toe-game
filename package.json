@@ -1,0 +1,10 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Browser-playable two-player Tic Tac Toe in vanilla JavaScript",
+  "main": "game.js",
+  "scripts": {
+    "test": "node --test game.test.js"
+  },
+  "license": "MIT"
+}
