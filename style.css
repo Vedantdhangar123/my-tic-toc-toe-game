@@ -11,9 +11,13 @@
   --radius: 14px;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
 
 body {
   margin: 0;
@@ -56,13 +60,38 @@ h1 {
   gap: 2px;
   transition: border-color 0.2s, transform 0.2s;
 }
-.score span { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
-.score strong { font-size: 1.5rem; }
-.score.x strong { color: var(--x); }
-.score.o strong { color: var(--o); }
-.score.active { border-color: currentColor; transform: translateY(-2px); }
-.score.x.active { color: var(--x); }
-.score.o.active { color: var(--o); }
+
+.score span {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.score strong {
+  font-size: 1.5rem;
+}
+
+.score.x strong {
+  color: var(--x);
+}
+
+.score.o strong {
+  color: var(--o);
+}
+
+.score.active {
+  border-color: currentColor;
+  transform: translateY(-2px);
+}
+
+.score.x.active {
+  color: var(--x);
+}
+
+.score.o.active {
+  color: var(--o);
+}
 
 /* Status line */
 .status {
@@ -71,10 +100,22 @@ h1 {
   font-size: 1.25rem;
   font-weight: 600;
 }
-.status.x { color: var(--x); }
-.status.o { color: var(--o); }
-.status.result { color: var(--win); }
-.status.result.draw { color: var(--muted); }
+
+.status.x {
+  color: var(--x);
+}
+
+.status.o {
+  color: var(--o);
+}
+
+.status.result {
+  color: var(--win);
+}
+
+.status.result.draw {
+  color: var(--muted);
+}
 
 /* Board */
 .board {
@@ -83,7 +124,7 @@ h1 {
   grid-template-rows: repeat(3, minmax(0, 1fr));
   gap: 10px;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
 }
 
 .cell {
@@ -102,26 +143,58 @@ h1 {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
-.cell:not(:disabled):hover { background: var(--cell-hover); }
-.cell:not(:disabled):active { transform: scale(0.95); }
-.cell:disabled { cursor: not-allowed; opacity: 1; }
-.cell.x { color: var(--x); }
-.cell.o { color: var(--o); }
-.cell.taken { animation: pop 0.18s ease-out; }
-.cell.win { background: rgba(34, 197, 94, 0.25); box-shadow: inset 0 0 0 3px var(--win); }
-.board.over .cell:not(.win):not(.taken) { opacity: 0.5; }
 
-@keyframes pop {
-  from { transform: scale(0.6); opacity: 0.2; }
-  to   { transform: scale(1);   opacity: 1; }
+.cell:not(:disabled):hover {
+  background: var(--cell-hover);
 }
 
+.cell:not(:disabled):active {
+  transform: scale(0.95);
+}
+
+.cell:disabled {
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.cell.x {
+  color: var(--x);
+}
+
+.cell.o {
+  color: var(--o);
+}
+
+.cell.taken {
+  animation: pop 0.18s ease-out;
+}
+
+.cell.win {
+  background: rgba(34, 197, 94, 0.25);
+  box-shadow: inset 0 0 0 3px var(--win);
+}
+
+.board.over .cell:not(.win):not(.taken) {
+  opacity: 0.5;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0.2;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 /* Buttons */
 .actions {
   display: flex;
   gap: 10px;
   margin-top: 18px;
 }
+
 .btn {
   flex: 1;
   padding: 14px 10px;
@@ -134,11 +207,25 @@ h1 {
   cursor: pointer;
   min-height: 48px; /* comfortable touch target */
 }
-.btn:hover { background: var(--panel); }
-.btn.primary { background: var(--x); border-color: var(--x); color: #0b1220; }
-.btn.primary:hover { filter: brightness(1.1); }
 
-:focus-visible { outline: 3px solid #fde047; outline-offset: 2px; }
+.btn:hover {
+  background: var(--panel);
+}
+
+.btn.primary {
+  background: var(--x);
+  border-color: var(--x);
+  color: #0b1220;
+}
+
+.btn.primary:hover {
+  filter: brightness(1.1);
+}
+
+:focus-visible {
+  outline: 3px solid #fde047;
+  outline-offset: 2px;
+}
 
 /* Instructions */
 .how-to {
@@ -150,14 +237,30 @@ h1 {
   color: var(--muted);
   font-size: 0.95rem;
 }
-.how-to summary { cursor: pointer; color: var(--text); font-weight: 600; }
-.how-to ol { margin: 10px 0 2px; padding-left: 20px; line-height: 1.5; }
+
+.how-to summary {
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.how-to ol {
+  margin: 10px 0 2px;
+  padding-left: 20px;
+  line-height: 1.5;
+}
 
 @media (max-width: 380px) {
-  body { padding: 10px; }
-  .board, .scoreboard { gap: 8px; }
+  body {
+    padding: 10px;
+  }
+  .board, .scoreboard {
+    gap: 8px;
+  }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-}
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}/*# sourceMappingURL=style.css.map */
